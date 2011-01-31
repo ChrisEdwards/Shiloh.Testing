@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shiloh.Testing", "Shiloh.Testing\Shiloh.Testing.csproj", "{08F6207B-6E86-4A92-95CF-7ABB023B3D29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shiloh.Testing.Tests", "Shiloh.Testing.Tests\Shiloh.Testing.Tests.csproj", "{69669BB8-6910-49D9-A125-D11F26CDDB18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08F6207B-6E86-4A92-95CF-7ABB023B3D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F6207B-6E86-4A92-95CF-7ABB023B3D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F6207B-6E86-4A92-95CF-7ABB023B3D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F6207B-6E86-4A92-95CF-7ABB023B3D29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69669BB8-6910-49D9-A125-D11F26CDDB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69669BB8-6910-49D9-A125-D11F26CDDB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69669BB8-6910-49D9-A125-D11F26CDDB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69669BB8-6910-49D9-A125-D11F26CDDB18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
