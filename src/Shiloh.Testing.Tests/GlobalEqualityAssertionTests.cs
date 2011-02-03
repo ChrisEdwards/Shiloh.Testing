@@ -80,7 +80,6 @@ namespace Shiloh.Testing.Tests
 			obj1.should_be_equal_to( obj2 );
 		}
 
-
 		[ Test ]
 		public void comparing_two_instances_of_the_same_class_with_different_values_should_fail()
 		{

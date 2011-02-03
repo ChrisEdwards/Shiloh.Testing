@@ -119,6 +119,7 @@ namespace Shiloh.Common.Specs
 		private It should_pass = () => Exception.ShouldBeNull();
 	}
 
+
 	[ Subject( typeof ( Enforce ) ) ]
 	public class When_the_parameter_is_a_date_that_includes_a_time : Enforcing_that_a_parameter_is_a_date_with_no_time
 	{
@@ -146,7 +147,7 @@ namespace Shiloh.Common.Specs
 	[ Subject( typeof ( Enforce ) ) ]
 	public class When_the_date_includes_a_time : Enforcing_that_a_date_value_has_no_time
 	{
-		private Establish context = () => _dateTimeValue = new DateTime(2011, 02, 03, 8, 50, 0);
+		private Establish context = () => _dateTimeValue = new DateTime( 2011, 02, 03, 8, 50, 0 );
 		private It should_fail = () => Exception.ShouldBeOfType< ArgumentException >();
 	}
 }
