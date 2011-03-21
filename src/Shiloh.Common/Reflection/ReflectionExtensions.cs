@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 
 
-namespace Shiloh.Testing.Reflection
+namespace Shiloh.Common.Reflection
 {
 	public static class ReflectionExtensions
 	{

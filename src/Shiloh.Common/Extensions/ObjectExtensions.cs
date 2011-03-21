@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 using System.Text;
-using Shiloh.Testing.Reflection;
+using Shiloh.Common.Reflection;
 
 
 namespace Shiloh.Common.Extensions

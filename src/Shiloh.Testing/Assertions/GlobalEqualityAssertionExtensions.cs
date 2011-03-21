@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
+using Shiloh.Common.Reflection;
 using Shiloh.Testing.Extensions;
-using Shiloh.Testing.Reflection;
 
 // ReSharper disable InconsistentNaming
 
