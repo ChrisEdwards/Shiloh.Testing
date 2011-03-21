@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="EnforceSpecs.cs" />
     <Compile Include="Extensions\EnumerableExtensionsSpecs.cs" />
+    <Compile Include="Extensions\ObjectExtensionSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

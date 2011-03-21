@@ -29,7 +29,7 @@ namespace Shiloh.Common.Extensions
 				                 property.GetValue( objectToPrint, null ) );
 			}
 
-			sb.Append( "}} }}}}" );
+			sb.Append( "} }}" );
 
 			return sb.ToString();
 		}
