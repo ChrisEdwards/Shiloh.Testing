@@ -45,7 +45,7 @@ namespace Shiloh.Testing.Assertions
 		/// <param name="actual">The actual.</param>
 		/// <param name="expected">The expected.</param>
 		/// <returns>All the pairs of properties that were public and had matching names and types.</returns>
-		private static IEnumerable< PropertyPair > GetPropertiesToCompare< TActual, TExpected >( TActual actual, TExpected expected )
+		static IEnumerable< PropertyPair > GetPropertiesToCompare< TActual, TExpected >( TActual actual, TExpected expected )
 		{
 			return
 					from exp in GetComparableProperties( expected )
@@ -62,15 +62,35 @@ namespace Shiloh.Testing.Assertions
 		/// <typeparam name="T">The type of the object to get the properties from.</typeparam>
 		/// <param name="actual">The actual.</param>
 		/// <returns>All the possible properties we could use for asserting equality.</returns>
-		private static IEnumerable< PropertyInfo > GetComparableProperties< T >( T actual )
+		static IEnumerable< PropertyInfo > GetComparableProperties< T >( T actual )
 		{
 			return
 					actual.GetType().GetPublicGetProperties()
-							.Where( property =>
-							        !property.PropertyType.IsClass &&
-							        !property.PropertyType.IsInterface &&
-							        !PropertyHasIgnoreForEqualityAttribute( property )
-							);
+							.Where( IsComparableProperty );
+		}
+
+
+		/// <summary>
+		/// Determines whether we are able to compare the specified property.
+		/// </summary>
+		/// <param name="property">The property.</param>
+		/// <returns>
+		///   <c>true</c> if the property is comparable otherwise, <c>false</c>.
+		/// </returns>
+		static bool IsComparableProperty( PropertyInfo property )
+		{
+			// Don't compare properties that user has told  us they aren't interested in (using the [IgnoreForEquality] attribute).
+			if ( PropertyHasIgnoreForEqualityAttribute( property ) )
+				return false;
+
+			Type propertyType = property.PropertyType;
+
+			// We can compare an array of value types.
+			if ( propertyType.IsArray )
+				return propertyType.GetElementType().IsValueType;
+
+			// We can compare value types.
+			return propertyType.IsValueType;
 		}
 
 
@@ -79,7 +99,7 @@ namespace Shiloh.Testing.Assertions
 		/// </summary>
 		/// <param name="propertyInfo">The property info.</param>
 		/// <returns>true if attribute exists, else false.</returns>
-		private static bool PropertyHasIgnoreForEqualityAttribute( PropertyInfo propertyInfo )
+		static bool PropertyHasIgnoreForEqualityAttribute( PropertyInfo propertyInfo )
 		{
 			object[] customAttributes = propertyInfo.GetCustomAttributes( typeof ( IgnorePropertyWhenAssertingEqualityAttribute ), true );
 			return customAttributes.Length > 0;
@@ -91,7 +111,7 @@ namespace Shiloh.Testing.Assertions
 		/// </summary>
 		/// <param name="value">The raw value.</param>
 		/// <returns>The cleaned up value.</returns>
-		private static object CleanupValue( object value )
+		static object CleanupValue( object value )
 		{
 			if ( value is DateTime )
 				return ( (DateTime)value ).StripMilliseconds();
@@ -103,7 +123,7 @@ namespace Shiloh.Testing.Assertions
 
 		#region Nested type: PropertyPair
 
-		private class PropertyPair
+		class PropertyPair
 		{
 			public PropertyInfo Expected { get; set; }
 			public PropertyInfo Actual { get; set; }

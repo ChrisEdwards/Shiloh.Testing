@@ -48,17 +48,21 @@
     <Compile Include="Assertions\GlobalEqualityAssertionExtensions.cs" />
     <Compile Include="Assertions\IgnorePropertyWhenAssertingEqualityAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflection\ReflectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Shiloh.Common\Shiloh.Common.csproj">
+      <Project>{F7C7997B-6526-44A7-A04B-A7B954F3A543}</Project>
+      <Name>Shiloh.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shiloh.DataGeneration\Shiloh.DataGeneration.csproj">
       <Project>{B5088BE7-78C5-4C63-8F64-9147308D4E45}</Project>
       <Name>Shiloh.DataGeneration</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

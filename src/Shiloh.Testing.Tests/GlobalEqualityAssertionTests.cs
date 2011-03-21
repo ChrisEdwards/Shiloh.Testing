@@ -19,6 +19,14 @@ namespace Shiloh.Testing.Tests
 	}
 
 
+	public class TestClass3
+	{
+		public int Value1 { get; set; }
+
+		[ IgnorePropertyWhenAssertingEquality ]
+		public int Value2 { get; set; }
+	}
+
 
 	public enum TestValues
 	{
@@ -32,12 +40,10 @@ namespace Shiloh.Testing.Tests
 		public TestValues Value1 { get; set; }
 	}
 
-	public class TestClass3
-	{
-		public int Value1 { get; set; }
 
-		[ IgnorePropertyWhenAssertingEquality ]
-		public int Value2 { get; set; }
+	public class Test_ClassWithArrayProperty
+	{
+		public int[] Values { get; set; }
 	}
 
 
@@ -108,7 +114,6 @@ namespace Shiloh.Testing.Tests
 		{
 			var obj1 = new TestClass4 {Value1 = TestValues.TestValue1};
 			var obj2 = new TestClass4 {Value1 = TestValues.TestValue1};
-
 			obj1.should_be_equal_to( obj2 );
 		}
 
@@ -118,6 +123,24 @@ namespace Shiloh.Testing.Tests
 		{
 			var obj1 = new TestClass4 {Value1 = TestValues.TestValue1};
 			var obj2 = new TestClass4 {Value1 = TestValues.TestValue2};
+			Assert.Throws< AssertionException >( () => obj1.should_be_equal_to( obj2 ) );
+		}
+
+
+		[ Test ]
+		public void comparing_two_instances_with_an_array_property_containing_the_same_array_of_values()
+		{
+			var obj1 = new Test_ClassWithArrayProperty {Values = new[]{1,2,3,4}};
+			var obj2 = new Test_ClassWithArrayProperty { Values = new[] { 1, 2, 3, 4 } };
+			obj1.should_be_equal_to( obj2 );
+		}
+
+
+		[ Test ]
+		public void comparing_two_instances_with_an_array_property_each_containing_a_differing_array_of_values()
+		{
+			var obj1 = new Test_ClassWithArrayProperty { Values = new[] { 1, 2, 3, 4 } };
+			var obj2 = new Test_ClassWithArrayProperty { Values = new[] { 5,6,7,8 } };
 			Assert.Throws< AssertionException >( () => obj1.should_be_equal_to( obj2 ) );
 		}
 	}

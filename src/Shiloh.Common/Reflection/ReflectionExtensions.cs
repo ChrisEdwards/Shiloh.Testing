@@ -39,18 +39,19 @@ namespace Shiloh.Testing.Reflection
 		}
 
 
-		/// <summary>
-		/// Gets the property info for the property specified in the expression.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <typeparam name="TPropertyType">The type of the property type.</typeparam>
-		/// <param name="source">The source.</param>
-		/// <param name="propertyExpression">The property expression.</param>
-		/// <returns></returns>
+//		/// <summary>
+//		/// Gets the property info for the property specified in the expression.
+//		/// </summary>
+//		/// <typeparam name="T"></typeparam>
+//		/// <typeparam name="TPropertyType">The type of the property type.</typeparam>
+//		/// <param name="source">The source.</param>
+//		/// <param name="propertyExpression">The property expression.</param>
+//		/// <returns></returns>
 // 		public static PropertyInfo PropertyInfoFor< T, TPropertyType >( this T source, Expression< Func< T, TPropertyType > > propertyExpression )
 // 		{
 // 			return ReflectionHelper.GetProperty( propertyExpression );
 // 		}
+
 		/// <summary>
 		/// Sets the property by name on a given instance.
 		/// </summary>
@@ -70,6 +71,8 @@ namespace Shiloh.Testing.Reflection
 		/// <param name="instance">The instance.</param>
 		/// <param name="propertyInfo">The property info.</param>
 		/// <param name="propertyValue">The property value.</param>
+		/// <exception cref="ArgumentNullException"><paramref name="propertyInfo" /> is <c>null</c>.</exception>
+		/// <exception cref="ApplicationException"><c>ApplicationException</c>.</exception>
 		public static void SetProperty( this object instance, PropertyInfo propertyInfo, object propertyValue )
 		{
 			if ( propertyInfo == null )
@@ -126,47 +129,36 @@ namespace Shiloh.Testing.Reflection
 		}
 
 
-		/// <summary>
-		/// Sets the value for the property specified by an expression.
-		/// </summary>
-		/// <typeparam name="TPropertyType">The type of the property type.</typeparam>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="prototype">The prototype.</param>
-		/// <param name="propertyExpression">The property expression.</param>
-		/// <param name="propertyValue">The property value.</param>
-
+//		/// <summary>
+//		/// Sets the value for the property specified by an expression.
+//		/// </summary>
+//		/// <typeparam name="TPropertyType">The type of the property type.</typeparam>
+//		/// <typeparam name="T"></typeparam>
+//		/// <param name="prototype">The prototype.</param>
+//		/// <param name="propertyExpression">The property expression.</param>
+//		/// <param name="propertyValue">The property value.</param>
 // 		public static void SetProperty< TPropertyType, T >( this T prototype, Expression< Func< T, TPropertyType > > propertyExpression, TPropertyType propertyValue )
-
 // 				where T : class, new()
-
 // 		{
-
 // 			Accessor accessor = ReflectionHelper.GetAccessor( propertyExpression );
-
 // 			accessor.SetValue( prototype, propertyValue );
-
 // 		}
 
 
-		/// <summary>
-		/// Gets the value for the property specified by an expression.
-		/// </summary>
-		/// <typeparam name="TPropertyType">The type of the property type.</typeparam>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="prototype">The prototype.</param>
-		/// <param name="propertyExpression">The property expression.</param>
-		/// <returns></returns>
-
+//		/// <summary>
+//		/// Gets the value for the property specified by an expression.
+//		/// </summary>
+//		/// <typeparam name="TPropertyType">The type of the property type.</typeparam>
+//		/// <typeparam name="T"></typeparam>
+//		/// <param name="prototype">The prototype.</param>
+//		/// <param name="propertyExpression">The property expression.</param>
+//		/// <returns></returns>
 // 		public static TPropertyType GetProperty< TPropertyType, T >( this T prototype, Expression< Func< T, TPropertyType > > propertyExpression )
-
 // 				where T : class, new()
-
 // 		{
-
 // 			Accessor accessor = ReflectionHelper.GetAccessor( propertyExpression );
-
 // 			return (TPropertyType)accessor.GetValue( prototype );
-
 // 		}
+
 	}
 }
