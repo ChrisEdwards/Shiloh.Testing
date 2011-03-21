@@ -113,7 +113,7 @@ namespace Shiloh.Common
 		/// <remarks>
 		/// Idea and some logic taken from http://abdullin.com/journal/2008/12/13/how-to-find-out-variable-or-parameter-name-in-c.html
 		/// </remarks>
-		private static void EnforceThatValueIsNotNull( Expression< Func< object > > valueExpression, string customErrorMessage )
+		static void EnforceThatValueIsNotNull( Expression< Func< object > > valueExpression, string customErrorMessage )
 		{
 			var expressionBody = (MemberExpression)valueExpression.Body;
 			object expressionValue = ( (FieldInfo)expressionBody.Member ).GetValue( ( (ConstantExpression)expressionBody.Expression ).Value );

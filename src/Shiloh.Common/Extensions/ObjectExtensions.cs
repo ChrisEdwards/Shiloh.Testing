@@ -20,7 +20,7 @@ namespace Shiloh.Common.Extensions
 			Type type = typeof ( T );
 
 			var sb = new StringBuilder();
-			sb.AppendFormat("{{{{ {0} {{ ", type.Name);
+			sb.AppendFormat( "{{{{ {0} {{ ", type.Name );
 
 			foreach ( PropertyInfo property in type.GetPublicGetProperties() )
 			{

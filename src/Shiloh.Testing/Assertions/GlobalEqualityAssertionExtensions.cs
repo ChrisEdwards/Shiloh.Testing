@@ -13,6 +13,7 @@ namespace Shiloh.Testing.Assertions
 {
 	public static class GlobalEqualityAssertionExtensions
 	{
+		// TODO: Update this to also compare properties of type IEnumerable.
 		/// <summary>
 		/// Dynamically compares the common publicly accessible property values of two objects of differing types to see if they are alike.
 		/// </summary>

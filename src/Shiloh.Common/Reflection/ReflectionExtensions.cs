@@ -159,6 +159,5 @@ namespace Shiloh.Testing.Reflection
 // 			Accessor accessor = ReflectionHelper.GetAccessor( propertyExpression );
 // 			return (TPropertyType)accessor.GetValue( prototype );
 // 		}
-
 	}
 }

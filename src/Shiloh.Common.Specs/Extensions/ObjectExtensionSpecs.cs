@@ -13,12 +13,12 @@ namespace Shiloh.Common.Specs.Extensions
 		{
 			static TestClass _testObject;
 			static string result;
-			Establish context = () => _testObject = new TestClass {PublicValue = "public", InternalValue = "internal"};
+			Establish context = () => _testObject = new TestClass { PublicValue = "public", InternalValue = "internal" };
 			Because of = () => result = _testObject.ToPrintableString();
 			It should_generate_string_with_the_values_of_all_public_properties = () => result.ShouldEqual( "{{ TestClass { PublicValue = [ public ]; } }}" );
 		}
-
 	}
+
 
 	public class TestClass
 	{

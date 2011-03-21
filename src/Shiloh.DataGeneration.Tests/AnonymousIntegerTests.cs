@@ -165,7 +165,7 @@ namespace Shiloh.DataGeneration.Tests
 		{
 			static int _result;
 			static IList< int > _predefinedList;
-			Establish context = () => _predefinedList = new List< int > {Anonymous.Int, Anonymous.Int, Anonymous.Int};
+			Establish context = () => _predefinedList = new List< int > { Anonymous.Int, Anonymous.Int, Anonymous.Int };
 
 			Because of = () => _result = Anonymous.Int.From( _predefinedList );
 
@@ -178,7 +178,7 @@ namespace Shiloh.DataGeneration.Tests
 		{
 			static int _result;
 			static IList< int > _predefinedList;
-			Establish context = () => _predefinedList = new List< int > {1, 2, 3, 4, 5};
+			Establish context = () => _predefinedList = new List< int > { 1, 2, 3, 4, 5 };
 
 			Because of = () => _result = Anonymous.Int.From( 1, 2, 3, 4, 5 );
 

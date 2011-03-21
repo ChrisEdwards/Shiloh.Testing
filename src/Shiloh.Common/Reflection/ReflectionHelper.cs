@@ -23,6 +23,7 @@ namespace Shiloh.Common.Reflection
 		}
         */
 
+
 		public static MemberInfo GetMember< MODEL >( Expression< Func< MODEL, object > > expression )
 		{
 			MemberExpression memberExpression = getMemberExpression( expression );
@@ -36,6 +37,7 @@ namespace Shiloh.Common.Reflection
 			return (FieldInfo)GetMember( expression );
 		}
         */
+
 
 		public static PropertyInfo GetProperty< MODEL >( Expression< Func< MODEL, object > > expression )
 		{
@@ -51,7 +53,8 @@ namespace Shiloh.Common.Reflection
 		}
         */
 
-		private static MemberExpression getMemberExpression< MODEL, T >( Expression< Func< MODEL, T > > expression )
+
+		static MemberExpression getMemberExpression< MODEL, T >( Expression< Func< MODEL, T > > expression )
 		{
 			return getMemberExpression( expression, true );
 		}
@@ -65,7 +68,7 @@ namespace Shiloh.Common.Reflection
 		/// <param name="expression">The member expression expressed as an Expression.</param>
 		/// <param name="enforceCheck">if set to <c>true</c> throw an error if it is not an expression that accesses a member property. If <c>false</c>, return a null in that case.</param>
 		/// <returns></returns>
-		private static MemberExpression getMemberExpression< MODEL, T >( Expression< Func< MODEL, T > > expression, bool enforceCheck )
+		static MemberExpression getMemberExpression< MODEL, T >( Expression< Func< MODEL, T > > expression, bool enforceCheck )
 		{
 			MemberExpression memberExpression = null;
 			if ( expression.Body.NodeType == ExpressionType.Convert )
@@ -117,6 +120,7 @@ namespace Shiloh.Common.Reflection
 			return stackFrame.GetMethod();
 		}
         */
+
 
 		public static MethodBase GetCallingMethod()
 		{
