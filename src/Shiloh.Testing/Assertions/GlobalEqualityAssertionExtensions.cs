@@ -6,6 +6,8 @@ using NUnit.Framework;
 using Shiloh.Testing.Extensions;
 using Shiloh.Testing.Reflection;
 
+// ReSharper disable InconsistentNaming
+
 
 namespace Shiloh.Testing.Assertions
 {
@@ -50,9 +52,9 @@ namespace Shiloh.Testing.Assertions
 			return
 					from exp in GetComparableProperties( expected )
 					join act in GetComparableProperties( actual )
-							on new {exp.Name, exp.PropertyType}
-							equals new {act.Name, act.PropertyType}
-					select new PropertyPair {Actual = act, Expected = exp};
+							on new { exp.Name, exp.PropertyType }
+							equals new { act.Name, act.PropertyType }
+					select new PropertyPair { Actual = act, Expected = exp };
 		}
 
 
@@ -132,3 +134,6 @@ namespace Shiloh.Testing.Assertions
 		#endregion
 	}
 }
+
+
+// ReSharper restore InconsistentNaming
